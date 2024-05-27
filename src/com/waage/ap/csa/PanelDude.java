@@ -8,12 +8,15 @@ public class PanelDude implements ActionListener, MouseListener {
 
     private JFrame frame;
     private JPanel[] panel;
+    private int number;
 
 
     private JButton[][] buttons0 = new JButton[3][3];
     private JButton[][] buttons1 = new JButton[3][3];
 
     public PanelDude(){
+
+        int number = 1;
 
         // Create the Frame
         frame = new JFrame("Frame Dude");
@@ -67,7 +70,7 @@ public class PanelDude implements ActionListener, MouseListener {
         JButton sourceButton = (JButton)e.getSource();
         Container parent = sourceButton.getParent();
 
-        sourceButton.setText("X");
+        sourceButton.setText(String.valueOf(number++));
 
         // Traverse up the hierarchy to find the panel
         while (!(parent instanceof JPanel) && parent != null) {
